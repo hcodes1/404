@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Custom 404 Page</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <img src="404 Error.png" alt="404 illustration" />
-    <h1>Oops! Page not found 👀</h1>
-    <p>Looks like you’re fishing in the wrong hole. Let’s head back!</p>
-    <a href="#">Back to home</a>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom 404 Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <img src="404 Error.png" alt="Illustration showing a 404 error - page not found" />
+  <h1>Oops! Page not found 👀</h1>
+  <p>
+    Looks like you’re fishing in the wrong hole.<br>
+    Redirecting in <span id="countdown">5</span> seconds...<br>
+    Or click the button below to return immediately.
+  </p>
+  <a href="index.html" role="button">Back to home</a>
+
+  <script>
+    let countdown = 5; // seconds
+    const countdownElement = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      countdown--;
+      countdownElement.textContent = countdown;
+      if (countdown <= 0) {
+        clearInterval(timer);
+        window.location.href = "index.html";
+      }
+    }, 1000);
+  </script>
+</body>
 </html>
