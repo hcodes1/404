@@ -12,7 +12,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 1rem;
   font-family: sans-serif;
+  text-align: center;
+  animation: fadeIn 1s ease;
 }
 
 img {
@@ -39,11 +42,15 @@ a {
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  outline: none;
 }
 
-a:hover {
+a:hover,
+a:focus {
   background-color: #1389e9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 600px) {
@@ -58,4 +65,10 @@ a:hover {
   p {
     font-size: 0.9rem;
   }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
